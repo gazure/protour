@@ -1,0 +1,89 @@
+bad game log record: GameLog { player: "Noah", deck: "White", won: 1, lost: 2, opp_deck: "Gr Aggro", notes: "Tough mu They play a lot of walkers and disenchants" }
+Raw Matchup data:
+White Aggro 0 - 1 White Midrange
+White Midrange 1 - 0 White Aggro
+White Midrange 1 - 1 White Midrange
+White Midrange 2 - 1 Red Aggro
+White Midrange 1 - 0 Red Midrange
+White Midrange 0 - 3 Blue Tempo
+White Midrange 1 - 0 Uw Midrange
+White Midrange 1 - 0 Rw Midrange
+White Midrange 6 - 2 Rb Midrange
+White Midrange 0 - 1 Gw Toxic
+White Midrange 0 - 1 Bw Midrange
+White Midrange 2 - 2 Grixis Midrange
+White Midrange 1 - 0 Grixis Combo
+White Midrange 3 - 1 Esper Midrange
+White Midrange 1 - 1 Jund Midrange
+White Midrange 1 - 0 Jeskai Midrange
+White Midrange 1 - 0 5c Atraxa
+Black Aggro 1 - 0 Grixis Midrange
+Red Aggro 1 - 2 White Midrange
+Red Aggro 0 - 1 Grixis Midrange
+Red Aggro 1 - 0 Esper Midrange
+Red Midrange 0 - 1 White Midrange
+Red Midrange 2 - 0 Rb Midrange
+Blue Tempo 3 - 0 White Midrange
+Blue Tempo 0 - 1 Rb Midrange
+Uw Midrange 0 - 1 White Midrange
+Uw Midrange 1 - 0 Rb Midrange
+Uw Legends 0 - 1 Rb Midrange
+Uw Toxic 0 - 1 Rb Midrange
+Ub Toxic 0 - 1 Rb Midrange
+Rw Midrange 0 - 1 White Midrange
+Rb Aggro 1 - 0 Grixis Midrange
+Rb Midrange 2 - 6 White Midrange
+Rb Midrange 0 - 2 Red Midrange
+Rb Midrange 1 - 0 Blue Tempo
+Rb Midrange 0 - 1 Uw Midrange
+Rb Midrange 1 - 0 Uw Legends
+Rb Midrange 1 - 0 Uw Toxic
+Rb Midrange 1 - 0 Ub Toxic
+Rb Midrange 2 - 2 Rb Midrange
+Rb Midrange 5 - 2 Grixis Midrange
+Rb Midrange 1 - 0 Esper Midrange
+Rb Midrange 1 - 3 Esper Legends
+Rb Midrange 0 - 2 Jund Midrange
+Rb Midrange 2 - 0 Mardu Midrange
+Rb Midrange 1 - 1 5c Midrange
+Rb Midrange 2 - 2 5c Atraxa
+Gw Midrange 0 - 1 Grixis Midrange
+Gw Toxic 1 - 0 White Midrange
+Gw Toxic 0 - 1 Grixis Midrange
+Bw Midrange 1 - 0 White Midrange
+Grixis Midrange 2 - 2 White Midrange
+Grixis Midrange 0 - 1 Black Aggro
+Grixis Midrange 1 - 0 Red Aggro
+Grixis Midrange 0 - 1 Rb Aggro
+Grixis Midrange 2 - 5 Rb Midrange
+Grixis Midrange 1 - 0 Gw Midrange
+Grixis Midrange 1 - 0 Gw Toxic
+Grixis Midrange 1 - 1 Grixis Midrange
+Grixis Midrange 0 - 1 Esper Midrange
+Grixis Midrange 1 - 1 5c Atraxa
+Grixis Combo 0 - 1 White Midrange
+Esper Midrange 1 - 3 White Midrange
+Esper Midrange 0 - 1 Red Aggro
+Esper Midrange 0 - 1 Rb Midrange
+Esper Midrange 1 - 0 Grixis Midrange
+Esper Legends 3 - 1 Rb Midrange
+Jund Midrange 1 - 1 White Midrange
+Jund Midrange 2 - 0 Rb Midrange
+Jeskai Midrange 0 - 1 White Midrange
+Mardu Midrange 0 - 2 Rb Midrange
+5c Midrange 1 - 1 Rb Midrange
+5c Atraxa 0 - 1 White Midrange
+5c Atraxa 2 - 2 Rb Midrange
+5c Atraxa 1 - 1 Grixis Midrange
+
+
+White Midrange vs. field: 22 - 13
+Rb Midrange vs. field: 20 - 21
+Grixis Midrange vs. field: 9 - 12
+5c Atraxa vs. field: 3 - 4
+
+
+Grant's record: 26 - 23
+Noah's record: 15 - 10
+Eamonn's record: 0 - 0
+Isaac's record: 0 - 0
