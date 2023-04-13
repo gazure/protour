@@ -1,9 +1,9 @@
 #![allow(unused)]
 use csv::{Reader, StringRecord};
 use serde::Deserialize;
-use std::collections::{BTreeMap, HashMap};
+use std::collections::BTreeMap;
 use std::error::Error;
-use std::fmt::{format, Display};
+use std::fmt::Display;
 use std::str::FromStr;
 
 #[derive(Debug)]
@@ -115,23 +115,17 @@ impl FromStr for Archetype {
 }
 
 #[derive(Debug, Copy, Clone, Deserialize, PartialEq, Eq, PartialOrd, Ord)]
-struct Deck {
-    color_id: ColorIdentity,
-    archetype: Archetype,
-}
+struct Deck(ColorIdentity, Archetype);
 
 impl Deck {
     fn new(color_id: ColorIdentity, archetype: Option<Archetype>) -> Self {
-        Deck {
-            color_id,
-            archetype: archetype.unwrap_or(Archetype::Midrange),
-        }
+        Deck(color_id, archetype.unwrap_or(Archetype::Midrange))
     }
 }
 
 impl Display for Deck {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{} {}", self.color_id, self.archetype)
+        write!(f, "{} {}", self.0, self.1)
     }
 }
 
@@ -142,10 +136,7 @@ impl FromStr for Deck {
         let mut parts = s.split(' ');
         let color_id = ColorIdentity::from_str(parts.next().unwrap_or(""))?;
         let archetype = Archetype::from_str(parts.next().unwrap_or(""))?;
-        Ok(Deck {
-            color_id,
-            archetype,
-        })
+        Ok(Deck(color_id, archetype))
     }
 }
 
@@ -262,7 +253,7 @@ fn player_record(games: &[GameLog], player: Player) {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let mut rdr = Reader::from_path("data3.csv")?;
+    let mut rdr = Reader::from_path("data.csv")?;
     let mut games = Vec::new();
     for row in rdr.deserialize() {
         let game: GameLog = row?;
