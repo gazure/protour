@@ -1,4 +1,3 @@
-bad game log record: GameLog { player: "Noah", deck: "White", won: 1, lost: 2, opp_deck: "Gr Aggro", notes: "Tough mu They play a lot of walkers and disenchants" }
 Raw Matchup data:
 White Aggro 0 - 1 White Midrange
 White Midrange 1 - 0 White Aggro
@@ -7,6 +6,7 @@ White Midrange 2 - 1 Red Aggro
 White Midrange 1 - 0 Red Midrange
 White Midrange 0 - 3 Blue Tempo
 White Midrange 1 - 0 Uw Midrange
+White Midrange 0 - 1 Rg Aggro
 White Midrange 1 - 0 Rw Midrange
 White Midrange 6 - 2 Rb Midrange
 White Midrange 0 - 1 Gw Toxic
@@ -30,6 +30,7 @@ Uw Midrange 1 - 0 Rb Midrange
 Uw Legends 0 - 1 Rb Midrange
 Uw Toxic 0 - 1 Rb Midrange
 Ub Toxic 0 - 1 Rb Midrange
+Rg Aggro 1 - 0 White Midrange
 Rw Midrange 0 - 1 White Midrange
 Rb Aggro 1 - 0 Grixis Midrange
 Rb Midrange 2 - 6 White Midrange
@@ -77,7 +78,7 @@ Mardu Midrange 0 - 2 Rb Midrange
 5c Atraxa 1 - 1 Grixis Midrange
 
 
-White Midrange vs. field: 22 - 13
+White Midrange vs. field: 22 - 14
 Rb Midrange vs. field: 20 - 21
 Grixis Midrange vs. field: 9 - 12
 5c Atraxa vs. field: 3 - 4
