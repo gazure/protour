@@ -263,10 +263,9 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     games.iter().for_each(|game| {
         game.matchups().iter().for_each(|matchup| {
-            let mut entry = matchups.entry(matchup.key()).or_insert(Matchup::new(
-                matchup.deck,
-                matchup.opponent,
-            ));
+            let mut entry = matchups
+                .entry(matchup.key())
+                .or_insert(Matchup::new(matchup.deck, matchup.opponent));
             let result = entry.add(*matchup);
             if result.is_err() {
                 eprintln!("Error adding matchup, keys not matched");
@@ -283,7 +282,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     deck_record(&matchups, Deck::new(ColorIdentity::White, None));
     deck_record(&matchups, Deck::new(ColorIdentity::Rb, None));
     deck_record(&matchups, Deck::new(ColorIdentity::Grixis, None));
-    deck_record(&matchups, Deck::new(ColorIdentity::FiveColor, Some(Archetype::Atraxa)));
+    deck_record(
+        &matchups,
+        Deck::new(ColorIdentity::FiveColor, Some(Archetype::Atraxa)),
+    );
     print!("\n\n");
 
     player_record(&games, Player::Grant);
