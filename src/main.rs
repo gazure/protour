@@ -1,7 +1,7 @@
 #![allow(unused)]
 use csv::{Reader, StringRecord};
 use serde::Deserialize;
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 use std::error::Error;
 use std::fmt::Display;
 use std::str::FromStr;
@@ -87,6 +87,7 @@ enum ColorIdentity {
 )]
 enum Archetype {
     Aggro,
+    Anvil,
     Midrange,
     Combo,
     Legends,
@@ -95,6 +96,8 @@ enum Archetype {
     Tempo,
     Vehicles,
     Domain,
+    Reanimator,
+    Enchantments,
 }
 
 impl FromStr for Archetype {
@@ -103,12 +106,17 @@ impl FromStr for Archetype {
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         match s.to_uppercase().as_ref() {
             "AGGRO" => Ok(Archetype::Aggro),
+            "ANVIL" => Ok(Archetype::Anvil),
             "MIDRANGE" => Ok(Archetype::Midrange),
             "COMBO" => Ok(Archetype::Combo),
             "LEGENDS" => Ok(Archetype::Legends),
             "TOXIC" => Ok(Archetype::Toxic),
             "ATRAXA" => Ok(Archetype::Atraxa),
             "TEMPO" => Ok(Archetype::Tempo),
+            "DOMAIN" => Ok(Archetype::Domain),
+            "REANIMATOR" => Ok(Archetype::Reanimator),
+            "VEHICLES" => Ok(Archetype::Vehicles),
+            "Enchantments" => Ok(Archetype::Enchantments),
             _ => Ok(Archetype::Midrange),
         }
     }
@@ -221,7 +229,7 @@ impl GameLog {
                 matchups.push(matchup);
             }
             (_, _) => {
-                println!("bad game log record: {:?}", self);
+                eprintln!("bad game log record: {:?}", self);
             }
         }
         matchups
@@ -231,7 +239,9 @@ impl GameLog {
 fn deck_record(matchups: &BTreeMap<(Deck, Deck), Matchup>, deck: Deck) {
     let (wins, losses) = matchups
         .iter()
-        .filter(|(k, _)| k.0 == deck)
+        .filter(|((d,_), _)| *d == deck)
+        // filter out mirror matchups
+        .filter(|((d, o), _)| *d != *o)
         .fold((0, 0), |(wins, losses), (_, matchup)| {
             (wins + matchup.win, losses + matchup.loss)
         });
@@ -272,6 +282,12 @@ fn main() -> Result<(), Box<dyn Error>> {
             }
         });
     });
+    let player_decks: BTreeSet<Deck> = games
+        .iter()
+        .map(|game| Deck::from_str(&game.deck))
+        .filter(|game| game.is_ok())
+        .map(|game| game.unwrap())
+        .collect();
 
     println!("Raw Matchup data:");
     matchups
@@ -279,9 +295,10 @@ fn main() -> Result<(), Box<dyn Error>> {
         .for_each(|matchup| println!("{}", matchup));
 
     print!("\n\n");
-    deck_record(&matchups, Deck::new(ColorIdentity::White, None));
-    deck_record(&matchups, Deck::new(ColorIdentity::Rb, None));
-    deck_record(&matchups, Deck::new(ColorIdentity::Grixis, None));
+
+    player_decks
+        .iter()
+        .for_each(|deck| deck_record(&matchups, *deck));
     deck_record(
         &matchups,
         Deck::new(ColorIdentity::FiveColor, Some(Archetype::Atraxa)),
