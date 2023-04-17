@@ -87,6 +87,7 @@ enum ColorIdentity {
 )]
 enum Archetype {
     Aggro,
+    Control,
     Anvil,
     Midrange,
     Combo,
@@ -109,6 +110,7 @@ impl FromStr for Archetype {
             "ANVIL" => Ok(Archetype::Anvil),
             "MIDRANGE" => Ok(Archetype::Midrange),
             "COMBO" => Ok(Archetype::Combo),
+            "CONTROL" => Ok(Archetype::Control),
             "LEGENDS" => Ok(Archetype::Legends),
             "TOXIC" => Ok(Archetype::Toxic),
             "ATRAXA" => Ok(Archetype::Atraxa),
